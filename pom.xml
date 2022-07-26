@@ -140,6 +140,19 @@
                                 </goals>
                             </execution>
                         </executions>
+                        <!--新增配置-->
+                        <configuration>
+                            <!--如果希望在运行时初始化包中的类使用 initialize-at-run-time -->
+                            <!--如果希望在构建时初始化包中的类使用 initialize-at-build -->
+                            <buildArgs>
+                                --initialize-at-run-time=io.netty.util.internal.logging.Log4JLogger
+                                --initialize-at-run-time=io.netty.handler.ssl.ReferenceCountedOpenSslContext
+                                --initialize-at-run-time=io.netty.handler.ssl.JdkNpnApplicationProtocolNegotiator
+                                --initialize-at-run-time=io.netty.handler.ssl.JettyNpnSslEngine
+                                --initialize-at-run-time=io.netty.handler.ssl.ConscryptAlpnSslEngine
+                                --initialize-at-run-time=io.netty.handler.ssl.BouncyCastleAlpnSslUtils
+                            </buildArgs>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
